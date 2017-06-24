@@ -1,24 +1,37 @@
-var latlong;
+var pos;
+var map;
+var marker;
+var comment = document.getElementById("location");
+
+
 function initMap(){
-	var latlong = {lat: -28.5440072, lng: 77.2723736};
-	var map = new google.maps.Map(document.getElementById("map"),{zoom: 12, center: latlong, mapTypeId: google.maps.MapTypeId.ROADMAP});
-	var marker = new google.maps.Marker({position: latlong, map: map});
+	pos = {
+		lat: 28.5440072,
+		lng: 77.2723736
+	};
+	map = new google.maps.Map(document.getElementById("map"),{zoom: 12, center: pos});
+	marker = new google.maps.Marker({position: pos, map: map});
 	getLocation();
 }
 
-var comment = document.getElementById("location-error");
 
 function getLocation() {
     if (!!navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(plotPosition);
+        navigator.geolocation.getCurrentPosition(getPosition);
     }
-    else { 
-        comment.innerHTML = "Geolocation is not supported by this browser.";
+    else {
+        comment.innerHTML = "Geolocation is not supported by this browser.";;
     }
 }
 
-function plotPosition(position) {
-    comment.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-    latlong = {lat: position.coords.latitude, lng: position.coords.longitude};
+function getPosition(position) {
+    pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+
+	marker.setPosition(pos);
+	map.setCenter(pos);
+
+    comment.innerHTML = "Latitude : " + position.coords.latitude;
 }
