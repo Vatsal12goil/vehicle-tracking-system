@@ -16,22 +16,34 @@ function initMap(){
 
 
 function getLocation() {
-    if (!!navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getPosition);
-    }
-    else {
-        comment.innerHTML = "Geolocation is not supported by this browser.";;
-    }
-}
 
-function getPosition(position) {
-    pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
+	var geoOptions = {
+		enableHighAccuracy: true,
+		timeout: 10 * 1000
+	}
 
-	marker.setPosition(pos);
-	map.setCenter(pos);
+	var geoSuccess = function(position) {
+		pos = {
+			lat: position.coords.latitude,
+			lng: position.coords.longitude
+		};
 
-    comment.innerHTML = "Latitude : " + position.coords.latitude;
+		marker.setPosition(pos);
+		map.setCenter(pos);
+
+		comment.innerHTML = "Latitude : " + position.coords.latitude;
+
+	};
+
+	var geoError = function(error) {
+		console.log('Error occurred. Error code: ' + error.code);
+		comment.innerHTML = "Error occurred.";
+		// error.code can be:
+		//   0: unknown error
+		//   1: permission denied
+		//   2: position unavailable (error response from location provider)
+		//   3: timed out
+	};
+
+	navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 }
