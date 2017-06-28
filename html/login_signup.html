@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/login_signup.css">
+	</head>
+
+	<body>
+		<header>
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-sm-6">
+						<p id = "heading">Tracking System</p>
+					</div>
+					<div id = "login-form">
+						<div class = "col-sm-6">
+							<div class = "row">
+								<div class = "col-sm-5">
+									<input type="text" placeholder="Username" name="uname" required>
+								</div>
+								<div class = "col-sm-5">
+									<div class="form-group">
+										<input type="password" placeholder="Password" name="pwd" required>
+										<div id = "forgot-pwd">
+											<a href="#"> forgot password? </a>
+										</div>
+									</div>
+								</div>
+								<div class = "col-sm-2">  
+									<button type="submit" onclick="location.href='./home.html';">Login</button>
+								</div>
+							</div>
+						</div>	
+					</div>			
+				</div>
+			</div>
+		</header>
+		<section class="container">
+			<div id = "signup_form">
+				<div class="row">
+					<h1><center><u>Sign Up</u></center></h1>
+				</div>
+				<div id = "input-signup">
+					<div class="form-group">
+						<label class="control-label" for="">Username</label>
+						<input type="text" class="form-control" placeholder="Username" name = "uname_signup">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="">Email</label>
+						<input type="text" class="form-control" placeholder="Email Address" name="email">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="">Password</label>
+						<input type="password" class="form-control" placeholder="Password" name="pwd_signup">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="">Re-enter Password</label>
+						<input type="password" class="form-control" placeholder="Re-enter Password">
+					</div>
+				</div>
+				<div class="row">
+					<center>
+						<button type="submit" onclick="location.href='#';">Sign Up</button>
+					</center>
+				</div>
+			</div>			
+		</section>
+
+		<footer>
+			<div class="row">
+				<p class="col-sm-4">&copy; Tracking System</p>
+				<ul class="col-sm-8">
+					<li class="col-sm-1">
+					<img src="../images/twitter.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/facebook.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/instagram.svg">
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+<!-- 		<script src="../js/login.js"></script> -->
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&callback=initMap"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	</body>
+</html>
