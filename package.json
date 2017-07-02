@@ -1,0 +1,7 @@
+{
+  "name": "Tracking-System",
+  "main": "server.js",
+  "dependencies": {
+    "mongoose": "^4.10.8"
+  }
+}
