@@ -19,6 +19,8 @@ var path = require('path');
 //connect to database
 mongoose.connect('mongodb://localhost:8081/users_ts');
 
+// require('./config/passport.js')(passport);
+
 app.use( express.static( __dirname + '/views'));
 app.use(morgan('dev'));		//maintain log on console
 app.use(cookie_parser());	//read cookies (used in authentication process)

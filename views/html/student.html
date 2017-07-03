@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Divyanshu Talwar">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/student.css">
+	</head>
+
+	<body>
+		<header>
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-sm-8">
+						<p id = "heading">Tracking System</p>
+					</div>
+					<div id = "login-form">
+						<div class = "col-sm-4">
+							<div class = "row">
+								<p class = "col-sm-10"> Hello, Username </p>
+								<div class = "col-sm-2">  
+									<button type="submit" onclick="location.href='/home';">Logout</button>
+								</div>
+							</div>
+						</div>	
+					</div>			
+				</div>
+			</div>
+		</header>
+
+		<section class = "jumbotron">
+			<div id = "map"></div>
+		</section>
+		<p id = "location">		</p>
+
+		<footer>
+			<div class="row">
+				<p class="col-sm-4">&copy; Tracking System</p>
+				<ul class="col-sm-8">
+					<li class="col-sm-1">
+					<img src="../images/twitter.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/facebook.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/instagram.svg">
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<script src="../js/maps.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&callback=initMap"></script>
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	</body>
+</html>
