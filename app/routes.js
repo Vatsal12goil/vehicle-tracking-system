@@ -2,21 +2,21 @@
 module.exports = function(app, passport, path){
 
 	app.get('/', function (req, res) {
-		res.sendFile(path.join(__dirname, '../views/html', 'home.html'));
+		res.render(path.join(__dirname, '../views/html', 'home.ejs'), { message: req.flash('signupMessage') });
+
 	});
 
-	app.get('/home.html', function (req, res) {
-		res.sendFile(path.join(__dirname, '../views/html', 'home.html'));
+	app.get('/student', function (req, res) {
+		// req.logout();
+		var user = req.body.username || "User";
+		res.render(path.join(__dirname, '../views/html', 'student.ejs'), { uname : user});
 	});
 
-	app.get('/home', function (req, res) {
-		res.sendFile(path.join(__dirname, '../views/html', 'home.html'));
-	});
-
-	app.get('/login', function (req, res) {
-		req.logout();
-		res.sendFile(path.join(__dirname, '../views/html', 'student.html'));
-	});
+	app.post('/signup', passport.authenticate('local-signup', {
+		successRedirect : '/student',
+		failureRedirect : '/',
+		failureFlash	: 'true'
+	}));
 
 	// app.get('/login', isLoggedIn, function(req, res) {
 	// 	res.json({ user : req.user });

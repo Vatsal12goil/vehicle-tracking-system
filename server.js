@@ -19,12 +19,16 @@ var path = require('path');
 //connect to database
 mongoose.connect('mongodb://localhost:8081/users_ts');
 
-// require('./config/passport.js')(passport);
+require('./config/passport.js')(passport);
 
-app.use( express.static( __dirname + '/views'));
 app.use(morgan('dev'));		//maintain log on console
 app.use(cookie_parser());	//read cookies (used in authentication process)
 app.use(body_parser());		//read html files
+
+//Store all CSS, JS, HTML files in view folder.
+app.use('/images',express.static(path.join(__dirname, 'views/images')));
+app.use('/js',express.static(path.join(__dirname, 'views/js')));
+app.use('/css',express.static(path.join(__dirname, 'views/css')));
 
 app.use(session( {secret : 'divyanshu'}));
 app.use(passport.initialize());

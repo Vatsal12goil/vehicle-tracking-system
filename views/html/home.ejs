@@ -30,43 +30,57 @@
 									</div>
 								</div>
 								<div class = "col-sm-2">  
-									<button type="submit" onclick="location.href='/login';">Login</button>
+									<button type="submit" onclick="location.href='/student';">Login</button>
 								</div>
 							</div>
 						</div>	
-					</div>			
+					</div>
 				</div>
 			</div>
 		</header>
 		<section class="container">
-			<div id = "signup_form">
-				<div class="row">
-					<h1><center><u>Sign Up</u></center></h1>
+			<form action="/signup" method="post">
+				<div id = "signup_form">
+					<div class="row">
+						<h1><center><u>Sign Up</u></center></h1>
+						<% if (message.length > 0) { %>
+							<div class="alert alert-danger"><%= message %></div>
+						<% } %>
+					</div>
+					<div id = "input-signup">
+						<div class="form-group">
+							<label class="control-label" for="">Username</label>
+							<input type="text" class="form-control" placeholder="Username" name = "username">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Email</label>
+							<input type="text" class="form-control" placeholder="Email Address" name="email">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Password</label>
+							<input type="password" class="form-control" placeholder="Password" name="password">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Re-enter Password</label>
+							<input type="password" class="form-control" placeholder="Re-enter Password">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Signup as</label>
+							<select name="identity" class ="form-control" >
+								<option value="Student">Student</option>
+								<option value="Admin">Admin</option>
+								<option value="Teacher">Teacher</option>
+								<option value="Parent">Parent</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<center>
+							<button type="submit">Sign Up</button>
+						</center>
+					</div>
 				</div>
-				<div id = "input-signup">
-					<div class="form-group">
-						<label class="control-label" for="">Username</label>
-						<input type="text" class="form-control" placeholder="Username" name = "uname_signup">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="">Email</label>
-						<input type="text" class="form-control" placeholder="Email Address" name="email">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="">Password</label>
-						<input type="password" class="form-control" placeholder="Password" name="pwd_signup">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="">Re-enter Password</label>
-						<input type="password" class="form-control" placeholder="Re-enter Password">
-					</div>
-				</div>
-				<div class="row">
-					<center>
-						<button type="submit" onclick="location.href='/home';">Sign Up</button>
-					</center>
-				</div>
-			</div>			
+			</form>			
 		</section>
 
 		<footer>
