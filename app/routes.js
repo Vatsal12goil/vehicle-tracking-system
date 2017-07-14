@@ -18,6 +18,13 @@ module.exports = function(app, passport, path){
 		failureFlash	: 'true'
 	}));
 
+	app.post('/login', passport.authenticate('local-login', {
+		// for success redirect check if admin/parent/student/driver
+		// make login failure page also (refer to scribble pad for more info )
+		successRedirect : '/student',
+		failureRedirect : '/loginFailure',
+		failureFlash	: 'true'
+	}));
 	// app.get('/login', isLoggedIn, function(req, res) {
 	// 	res.json({ user : req.user });
 	// });
