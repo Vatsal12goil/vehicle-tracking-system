@@ -18,9 +18,9 @@
 					<div id = "login-form">
 						<div class = "col-sm-4">
 							<div class = "row">
-								<p class = "col-sm-10"> Hello, <%=uname%> </p>
+								<p class = "col-sm-10"> Welcome, <%= user.local.username %></p>
 								<div class = "col-sm-2">  
-									<button type="submit" onclick="location.href='/';">Logout</button>
+									<button type="submit" onclick="location.href='/logout';">Logout</button>
 								</div>
 							</div>
 						</div>	

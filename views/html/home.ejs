@@ -15,26 +15,28 @@
 					<div class = "col-sm-6">
 						<p id = "heading">Tracking System</p>
 					</div>
-					<div id = "login-form">
-						<div class = "col-sm-6">
-							<div class = "row">
-								<div class = "col-sm-5">
-									<input type="text" placeholder="Username" name="uname" required>
-								</div>
-								<div class = "col-sm-5">
-									<div class="form-group">
-										<input type="password" placeholder="Password" name="pwd" required>
-										<div id = "forgot-pwd">
-											<a href="#"> forgot password? </a>
+					<form action = "/login" method = "post">
+						<div id = "login-form">
+							<div class = "col-sm-6">
+								<div class = "row">
+									<div class = "col-sm-5">
+										<input type="text" placeholder="Username" name="username" required>
+									</div>
+									<div class = "col-sm-5">
+										<div class="form-group">
+											<input type="password" placeholder="Password" name="password" required>
+											<div id = "forgot-pwd">
+												<a href="#"> forgot password? </a>
+											</div>
 										</div>
 									</div>
+									<div class = "col-sm-2">  
+										<button type="submit" onclick="location.href='/student';">Login</button>
+									</div>
 								</div>
-								<div class = "col-sm-2">  
-									<button type="submit" onclick="location.href='/student';">Login</button>
-								</div>
-							</div>
-						</div>	
-					</div>
+							</div>	
+						</div>
+					</form>
 				</div>
 			</div>
 		</header>
@@ -71,6 +73,7 @@
 								<option value="Admin">Admin</option>
 								<option value="Teacher">Teacher</option>
 								<option value="Parent">Parent</option>
+								<option value="Driver">Driver</option>
 							</select>
 						</div>
 					</div>

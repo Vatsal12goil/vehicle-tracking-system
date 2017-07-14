@@ -6,10 +6,13 @@ module.exports = function(app, passport, path){
 
 	});
 
-	app.get('/student', function (req, res) {
-		// req.logout();
-		var user = req.body.username || "User";
-		res.render(path.join(__dirname, '../views/html', 'student.ejs'), { uname : user});
+	app.get('/student', isLoggedIn, function (req, res) {
+		res.render(path.join(__dirname, '../views/html', 'student.ejs'),{ user : req.user });
+	});
+
+	app.get('/logout', function(req, res){
+		req.logout();
+		res.redirect('/');
 	});
 
 	app.post('/signup', passport.authenticate('local-signup', {
@@ -25,15 +28,14 @@ module.exports = function(app, passport, path){
 		failureRedirect : '/loginFailure',
 		failureFlash	: 'true'
 	}));
-	// app.get('/login', isLoggedIn, function(req, res) {
-	// 	res.json({ user : req.user });
-	// });
 
-	// function isLoggedIn(req, res, next) {
-	// 	if(req.isAuthenticated()){
-	// 		return next();
-	// 	}
-	// 	res.redirect('/');
-	// }
+	function isLoggedIn(req, res, next) {
+		if(req.isAuthenticated()){
+			return next();
+		}
+		else{
+			res.redirect('/');
+		}
+	}
 
 }
