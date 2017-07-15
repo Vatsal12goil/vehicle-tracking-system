@@ -61,7 +61,7 @@ module.exports = function(passport){
 					return done(err);
 
 				if(!user)
-					return done(null, false, req.flash('loginMessage', 'The entered username doesnot exist!'));
+					return done(null, false, req.flash('loginMessage', 'The entered username doesn\'t exist!'));
 
 				if(!user.validPwd(password))
 					return done(null, false, req.flash('loginMessage', 'The entered password is wrong!!'));

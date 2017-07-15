@@ -6,6 +6,11 @@ module.exports = function(app, passport, path){
 
 	});
 
+	app.get('/loginFailure', function (req, res) {
+		res.render(path.join(__dirname, '../views/html', 'loginFailure.ejs'), { message: req.flash('loginMessage') });
+
+	});
+
 	app.get('/student', isLoggedIn, function (req, res) {
 		res.render(path.join(__dirname, '../views/html', 'student.ejs'),{ user : req.user });
 	});
