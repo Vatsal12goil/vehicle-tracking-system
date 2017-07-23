@@ -29,6 +29,26 @@
 			</div>
 		</header>
 
+		<div id = "form">
+			<div class = "row">
+					<form action = "/route_fetch" method = "post">
+						<div class = "col-sm-8">
+							<select name="identity" class ="form-control">
+								<option value="1">Route 1</option>
+								<option value="2">Route 2</option>
+								<option value="3">Route 3</option>
+								<option value="4">Route 4</option>
+								<option value="5">Route 5</option>
+							</select>
+						</div>
+						<div class = "col-sm-2" >
+							<button type="submit" class ="form-control">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
 		<section class = "jumbotron">
 			<div id = "map"></div>
 		</section>
@@ -52,8 +72,8 @@
 			</div>
 		</footer>
 
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="../js/maps.js"></script>
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&callback=initMap"></script>
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	</body>
 </html>

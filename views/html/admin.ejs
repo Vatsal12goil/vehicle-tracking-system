@@ -5,7 +5,7 @@
 		<meta name="author" content="Divyanshu Talwar">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/student.css">
+		<link rel="stylesheet" type="text/css" href="../css/admin.css">
 	</head>
 
 	<body>
@@ -31,6 +31,7 @@
 
 		<div id = "form">
 			<div class = "row">
+				<div class = "col-sm-10">
 					<form action = "/route_fetch" method = "post">
 						<div class = "col-sm-8">
 							<select name="identity" class ="form-control">
@@ -45,6 +46,9 @@
 							<button type="submit" class ="form-control">Submit</button>
 						</div>
 					</form>
+				</div>
+				<div class = "col-sm-2">
+					<button class ="form-control" onclick="location.href='/add_route'">Add route</button>
 				</div>
 			</div>
 		</div>

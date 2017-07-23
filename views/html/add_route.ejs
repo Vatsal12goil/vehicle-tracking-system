@@ -5,7 +5,7 @@
 		<meta name="author" content="Divyanshu Talwar">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/student.css">
+		<link rel="stylesheet" type="text/css" href="../css/admin.css">
 	</head>
 
 	<body>
@@ -29,30 +29,17 @@
 			</div>
 		</header>
 
-		<div id = "form">
-			<div class = "row">
-					<form action = "/route_fetch" method = "post">
-						<div class = "col-sm-8">
-							<select name="identity" class ="form-control">
-								<option value="1">Route 1</option>
-								<option value="2">Route 2</option>
-								<option value="3">Route 3</option>
-								<option value="4">Route 4</option>
-								<option value="5">Route 5</option>
-							</select>
-						</div>
-						<div class = "col-sm-2" >
-							<button type="submit" class ="form-control">Submit</button>
-						</div>
-					</form>
-				</div>
-			</div>
+		<div id = "form" class = "row">
+			<div class = "col-sm-2"></div>
+			<div class = "col-sm-3"><button type="submit" class ="form-control" onclick="location.href='/add';">ADD</button></div>
+			<div class = "col-sm-2"></div>
+			<div class = "col-sm-3"><button type="submit" class ="form-control" onclick="location.href='/admin';">Back</button></div>
 		</div>
 
 		<section class = "jumbotron">
 			<div id = "map"></div>
 		</section>
-		<p id = "location">		</p>
+		<p id = "location"></p>
 
 		<footer>
 			<div class="row">
@@ -72,7 +59,7 @@
 		</footer>
 
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="../js/student_maps.js"></script>
+		<script src="../js/add_maps.js"></script>
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&callback=initMap"></script>
 	</body>
 </html>

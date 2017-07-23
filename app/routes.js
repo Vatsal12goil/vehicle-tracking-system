@@ -21,11 +21,30 @@ module.exports = function(app, passport, path){
 	    if (req.user.local.id === 'Driver'){
 	    	return res.redirect('/driver');
 	    }
+		if (req.user.local.id === 'Admin'){
+	    	return res.redirect('/admin');
+	    }
 		res.render(path.join(__dirname, '../views/html', 'student.ejs'),{ user : req.user });
 	});
 
 	app.get('/driver', isLoggedIn, function (req, res) {
 		res.render(path.join(__dirname, '../views/html', 'driver.ejs'),{ user : req.user });
+	});
+
+	app.get('/admin', isLoggedIn, function (req, res) {
+		res.render(path.join(__dirname, '../views/html', 'admin.ejs'),{ user : req.user });
+	});
+
+	app.get('/add_route', isLoggedIn, function (req, res) {
+		res.render(path.join(__dirname, '../views/html', 'add_route.ejs'),{ user : req.user });
+	});
+
+	app.get('/add', isLoggedIn, function (req, res) {
+		//fetch the route and add it to the db
+	});
+
+	app.get('/route_fetch', isLoggedIn, function (req, res) {
+		//fetch the route from the db and display it on the map
 	});
 
 	app.get('/logout', function(req, res){
