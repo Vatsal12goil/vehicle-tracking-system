@@ -19,6 +19,7 @@ function getLocation() {
 
 	var geoOptions = {
 		enableHighAccuracy: true,
+		maximumAge: 1.5 * 60 * 1000,
 		timeout: 10 * 1000
 	}
 
@@ -32,12 +33,22 @@ function getLocation() {
 		map.setCenter(pos);
 
 		comment.innerHTML = "Latitude : " + position.coords.latitude;
-
+		// add code to send over the location to the server.
+		$.ajax({
+			type: "POST",
+			url: "/position",
+			data: pos,
+			success: function(data){
+				console.log('Successful');
+          },
+		});
+		console.log('sent the position to the server.');
 	};
 
 	var geoError = function(error) {
-		console.log('Error occurred. Error code: ' + error.code);
-		comment.innerHTML = "Error occurred.";
+		console.log('Error occurred. Error code:' + error.code);
+		comment.innerHTML = "Error occurred." + error.code;
+		console.log(error.code);
 		// error.code can be:
 		//   0: unknown error
 		//   1: permission denied
@@ -45,5 +56,5 @@ function getLocation() {
 		//   3: timed out
 	};
 
-	navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+	var wpid = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
 }
