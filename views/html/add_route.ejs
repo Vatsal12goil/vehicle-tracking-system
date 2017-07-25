@@ -29,16 +29,44 @@
 			</div>
 		</header>
 
-		<div id = "form" class = "row">
-			<div class = "col-sm-2"></div>
-			<div class = "col-sm-3"><button type="submit" class ="form-control" onclick="location.href='/add';">ADD</button></div>
-			<div class = "col-sm-2"></div>
-			<div class = "col-sm-3"><button type="submit" class ="form-control" onclick="location.href='/admin';">Back</button></div>
-		</div>
-
 		<section class = "jumbotron">
-			<div id = "map"></div>
+			<div class="row">
+				<div class = "col-sm-5">
+					<section class="container">
+						<div id = "route_form">
+							<div class="row">
+								<h3><center><u>Add Route:</u></center></h3>
+							</div>
+							<div id = "input-route">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Source" name = "source" id = "source">
+								</div>
+								<center><div id = "waypoints"></div></center>
+								<div class = "row">
+									<div class = "col-sm-4"></div>
+									<div class = "col-sm-4"><button class ="form-control" id = "add-waypoint"  onclick="add()";">Add Waypoint</button></div>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Destination" name="destination" id="destination">
+								</div>
+								<div class = "row">
+									<div class = "col-sm-2"></div>
+									<form action="addRoute()" method="post">
+										<div class = "col-sm-3"><button type="submit" class ="form-control">Add</button></div>
+									</form>
+									<div class = "col-sm-2"></div>
+									<div class = "col-sm-3"><button class ="form-control" onclick="location.href='/admin';">Back</button></div>
+								</div>
+						</div>									
+					</section>
+				</div>
+				<div class = "col-sm-7">
+					<div id = "map"></div>
+				</div>
+			</div>
+			
 		</section>
+
 		<p id = "location"></p>
 
 		<footer>
@@ -60,6 +88,7 @@
 
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="../js/add_maps.js"></script>
-		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&callback=initMap"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqr0wZ0b5fB0jnM4denhKupwfTRL9G6xY&libraries=places&callback=initMap"
+        async defer></script>
 	</body>
 </html>
