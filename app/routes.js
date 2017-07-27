@@ -1,4 +1,5 @@
 //This would in a way replace the require route.js line with this function (like a inter-file function call).
+var Route = require('../app/modules/route_db');
 module.exports = function(app, passport, path){
 
 	var posn = {
@@ -36,19 +37,68 @@ module.exports = function(app, passport, path){
 	});
 
 	app.get('/add_route', isLoggedIn, function (req, res) {
-		res.render(path.join(__dirname, '../views/html', 'add_route.ejs'),{ user : req.user });
+		res.render(path.join(__dirname, '../views/html', 'add_route.ejs'),{ message : req.flash('message'), user : req.user});
 	});
 
 	app.post('/save_route', isLoggedIn, function (req, res) {
 		//fetch the route and add it to the db
+		var id = req.body.id;
 		var source = req.body.source;
 		var destination = req.body.destination;
 		var waypoints = req.body.waypoints;
+
+		Route.findOne({ 'routes.id' : id}, function(err, route){
+			if(err){
+				throw err;
+			}
+			if(route){
+				res.send(500,'showAlert');
+			}
+			else{
+				var newRoute = new Route();
+
+				newRoute.routes.id = id;
+				newRoute.routes.source = source;
+				newRoute.routes.destination = destination;
+				newRoute.routes.waypoints = waypoints;
+				
+				newRoute.save(function(err){
+					if(err){
+						throw err;
+					}
+					res.send(500,'done');
+				});
+			}
+		});
 	});
 
-	app.get('/route_fetch', isLoggedIn, function (req, res) {
+	app.post('/route_fetch', isLoggedIn, function (req, res) {
 		//fetch the route from the db and display it on the map
-		console.log(body.waypoints);
+		var id = req.body.id;
+		var data;
+		Route.findOne({ 'routes.id' : id }, function(err, route){
+			if(err){
+				throw err;
+			}
+			if(route){
+				var wp = [];
+				for( var data of route.routes.waypoints){
+					data.stopover = Boolean(data.stopover);
+					wp.push(data);
+					// console.log(data.stopover);
+				}
+				data = {
+					source		: route.routes.source,
+					destination	: route.routes.destination,
+					waypoints	: wp
+				};
+				res.send(data);
+			}
+			if(!route){
+				res.send(500,'not_found');
+			}
+		});
+
 	});
 
 	app.get('/logout', function(req, res){

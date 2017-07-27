@@ -11,7 +11,7 @@ var waypointsAutocomplete = [];
 var a;
 
 function save_route(){
-    var routeno = getElementById("id").value;
+    var routeno = document.getElementById("id").value;
     $.ajax({
       type: 'post',
       url: 'save_route',
@@ -19,13 +19,14 @@ function save_route(){
         'id'            : routeno, 
         'source'        : a.originPlaceId,
         'destination'   : a.destinationPlaceId,
-        'waypoints'     : waypointsPlaceId.toString()
+        'waypoints'     : waypointsPlaceId
       },
-      success: function (response) {
-        alert(response.status);
-      },
-      error: function () {
-        alert("error");
+      error: function (error) {
+        if(error.responseText == 'showAlert')
+            alert('That id is already in use!');
+
+        if(error.responseText == 'done')
+            alert('Route successfully added to the database!');
       }
     });
 }
@@ -116,7 +117,7 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(aut
         if (mode === 'DEST') {
             me.destinationPlaceId = place.place_id;
         } else {
-            console.log(place.place_id);
+            // console.log(place.place_id);
             waypointsPlaceId.push({
                 location: {
                     placeId: place.place_id

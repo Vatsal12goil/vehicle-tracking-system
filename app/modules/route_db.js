@@ -6,7 +6,7 @@ var routeSchema = mongoose.Schema({
 		id			: String,
 		source		: String,
 		destination	: String,
-		waypoints	: String
+		waypoints : { type : Array , "default" : [] }
 	}
 });
 
