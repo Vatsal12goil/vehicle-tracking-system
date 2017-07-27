@@ -18,8 +18,8 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         mapTypeControl: false,
         center: {
-            lat: -33.8688,
-            lng: 151.2195
+            lat: 28.5440072,
+            lng: 77.2723736
         },
         zoom: 13
     });
@@ -90,10 +90,10 @@ AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(aut
             window.alert("Please select an option from the dropdown list.");
             return;
         }
-        if (mode == = 'ORIG') {
+        if (mode === 'ORIG') {
             me.originPlaceId = place.place_id;
         } else
-        if (mode == = 'DEST') {
+        if (mode === 'DEST') {
             me.destinationPlaceId = place.place_id;
         } else {
             console.log(place.place_id);
@@ -127,7 +127,7 @@ AutocompleteDirectionsHandler.prototype.route = function() {
         optimizeWaypoints: true,
         travelMode: 'DRIVING'
     }, function(response, status) {
-        if (status == = 'OK') {
+        if (status === 'OK') {
             me.directionsDisplay.setDirections(response);
         } else {
             window.alert('Directions request failed due to ' + status);
