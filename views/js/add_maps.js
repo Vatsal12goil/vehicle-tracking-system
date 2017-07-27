@@ -10,6 +10,26 @@ var waypoints = 0;
 var waypointsAutocomplete = [];
 var a;
 
+function save_route(){
+    var routeno = getElementById("id").value;
+    $.ajax({
+      type: 'post',
+      url: 'save_route',
+      data: { 
+        'id'            : routeno, 
+        'source'        : a.originPlaceId,
+        'destination'   : a.destinationPlaceId,
+        'waypoints'     : waypointsPlaceId.toString()
+      },
+      success: function (response) {
+        alert(response.status);
+      },
+      error: function () {
+        alert("error");
+      }
+    });
+}
+
 function add() {
     AutocompleteDirectionsHandler.prototype.addWaypoint(map);
 }

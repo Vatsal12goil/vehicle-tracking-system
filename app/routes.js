@@ -39,12 +39,16 @@ module.exports = function(app, passport, path){
 		res.render(path.join(__dirname, '../views/html', 'add_route.ejs'),{ user : req.user });
 	});
 
-	app.get('/add', isLoggedIn, function (req, res) {
+	app.post('/save_route', isLoggedIn, function (req, res) {
 		//fetch the route and add it to the db
+		var source = req.body.source;
+		var destination = req.body.destination;
+		var waypoints = req.body.waypoints;
 	});
 
 	app.get('/route_fetch', isLoggedIn, function (req, res) {
 		//fetch the route from the db and display it on the map
+		console.log(body.waypoints);
 	});
 
 	app.get('/logout', function(req, res){

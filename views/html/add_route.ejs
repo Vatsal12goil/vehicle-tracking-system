@@ -39,6 +39,9 @@
 							</div>
 							<div id = "input-route">
 								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Route Number" name = "id" id = "id">
+								</div>
+								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Source" name = "source" id = "source">
 								</div>
 								<center><div id = "waypoints"></div></center>
@@ -51,9 +54,7 @@
 								</div>
 								<div class = "row">
 									<div class = "col-sm-2"></div>
-									<form action="addRoute()" method="post">
-										<div class = "col-sm-3"><button type="submit" class ="form-control">Add</button></div>
-									</form>
+									<div class = "col-sm-3"><button type="submit" class ="form-control" onclick="location.href='save_route()';">Add</button></div>
 									<div class = "col-sm-2"></div>
 									<div class = "col-sm-3"><button class ="form-control" onclick="location.href='/admin';">Back</button></div>
 								</div>
