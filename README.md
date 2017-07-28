@@ -6,7 +6,7 @@
 * An existing user can login using his `username` and `password`.
 	* Incase the username or password is not valid, the user is redirected to a login failure page.
 * When logged in, each of the users can view the route by filling in the Route Number form with their respective route number, given to them at the time of registration.
-	** If the entered Route Number is invaild an alert message saying `The entered Route Number is invalid!` is displayed.
+	* If the entered Route Number is invaild an alert message saying `The entered Route Number is invalid!` is displayed.
 * The server keeps a track of the driver's location and updates others of his/her where abouts every 2 minutes.
 * If the driver is not logged in, other users recieve an alert saying `Driver not logged in!!` and their maps centred at the location `lat : 0, long : 0`.
 * When the driver is logged in the alert reads `Running...` for all the users logged in.
@@ -20,6 +20,7 @@
 	* The `back` button redirects the admin to his accounts homepage.
 
 ## Installation and Execution
+* Install `node.js` and `mongodb` on your system and then proceed with the following steps.
 * `cd` into the project's directry.
 * Replace my google maps API key with yours in these files:
 	* `add_route.ejs`, `admin.ejs`, `student.ejs` and `driver.ejs`.
@@ -34,8 +35,8 @@
 * Open your browser and type in `localhost:8080` or `127.0.0.1:8080` to view the login/signup page.
 
 ## Contents
+* The `screenshots` folder has some of the pictures of the website in action.
 * The `views` folder contains the entire front-end part.
 * The `app` folder contains the user and route database schema intitializing scripts and the `route.js` file which is responsible for catering to all the client requests.
-* The `config` folder contains the passport.js script.
+* The `config` folder contains the passport.js script, which configures the passport.
 * `server.js` is the main node.js script linking all others to successfully run the website.
-* The `screenshots` folder has some of the pictures of the website in action.
