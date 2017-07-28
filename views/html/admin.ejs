@@ -33,7 +33,7 @@
 			<div class = "row">
 				<div class = "col-sm-10">
 					<div class = "col-sm-8">
-						<input type="text" placeholder="Route Number" name="username" id="route_no" required>
+						<input type="text"class ="form-control"  placeholder="Route Number" name="username" id="route_no" required>
 					</div>
 					<div class = "col-sm-2" >
 						<button type="submit" class ="form-control" onclick = "call_route_fetch()">Submit</button>
@@ -43,12 +43,13 @@
 					<button class ="form-control" onclick="location.href='/add_route'">Add route</button>
 				</div>
 			</div>
+			<div class="row"><center><p id = "location"></p></center></div>
 		</div>
 
 		<section class = "jumbotron">
 			<div id = "map"></div>
 		</section>
-		<p id = "location">		</p>
+		
 
 		<footer>
 			<div class="row">

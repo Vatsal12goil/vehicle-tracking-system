@@ -71,7 +71,7 @@ function getLocation() {
 		marker.setPosition(pos);
 		map.setCenter(pos);
 
-		comment.innerHTML = "Latitude : " + position.coords.latitude;
+		comment.innerHTML = "Running...";
 		// add code to send over the location to the server.
 		$.ajax({
 			type: "POST",

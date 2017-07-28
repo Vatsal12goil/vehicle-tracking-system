@@ -58,10 +58,15 @@ function initMap(){
 		success: function(data){
 			pos.lat = Number(data.lat);
 			pos.lng = Number(data.lng);
-			console.log(pos);
+			// console.log(pos);
 			marker.setPosition(pos);
 			map.setCenter(pos);
-			comment.innerHTML = "Latitude : " + pos.lat;
+			if(pos.lat !== 0 && pos.long !== 0){
+				comment.innerHTML = "Running...";
+			}
+			else{
+				comment.innerHTML = "Driver not logged in !!!";
+			}
 		}
 	});
 	
@@ -73,10 +78,15 @@ function initMap(){
 			success: function(data){
 				pos.lat = Number(data.lat);
 				pos.lng = Number(data.lng);
-				console.log(pos);
+				// console.log(pos);
 				marker.setPosition(pos);
 				map.setCenter(pos);
-				comment.innerHTML = "Latitude : " + pos.lat;
+				if(pos.lat !== 0 && pos.long !== 0){
+					comment.innerHTML = "Running...";
+				}
+				else{
+					comment.innerHTML = "Driver not logged in !!!";
+				}
 			}
 		});
 	}, 2*60000);
