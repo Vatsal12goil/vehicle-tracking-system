@@ -1,0 +1,67 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+header{
+	padding-top: 20px;
+	background-color: #167232;
+}
+
+header row,
+footer row{
+	align-items: center;
+	display :flex;
+}
+
+#heading{
+	color: white;
+	margin: 0;
+	font-size: 24px;
+	padding: 4px 0;
+	padding-bottom: 15px;
+}
+
+#signup a {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	font-size: 12px;
+	color: white;
+	line-height: 19px;
+}
+
+#login-form{
+	margin-top: 49px;
+	margin-bottom: 50px;
+}
+
+#input_login{
+	display: table;
+	margin-right: auto;
+	margin-left: auto;
+	width:30%;
+}
+
+
+footer {
+	font-size: 14px;
+	color: white;
+	/*padding: 20px 0;*/
+	padding-top: 20px;
+	padding-bottom: 0px;
+	background-color: #167232;
+}
+
+footer .col-sm-8 {
+	display: flex;
+	justify-content: flex-end;
+}
+
+footer ul {
+	list-style: none;
+}
+
+footer li img {
+	width: 32px;
+	height: 32px;
+}

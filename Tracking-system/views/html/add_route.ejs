@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Divyanshu Talwar">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	</head>
+
+	<body>
+		<header>
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-sm-8">
+						<p id = "heading">Tracking System</p>
+					</div>
+					<div id = "login-form">
+						<div class = "col-sm-4">
+							<div class = "row">
+								<p class = "col-sm-10"> Welcome, <%= user.local.username %></p>
+								<div class = "col-sm-2">  
+									<button type="submit" onclick="location.href='/logout';">Logout</button>
+								</div>
+							</div>
+						</div>	
+					</div>			
+				</div>
+			</div>
+		</header>
+
+
+
+		<section class = "jumbotron">
+			<div class = "row">
+				<div class = "col-sm-5">
+					<section class="container">
+						<div id = "route_form">
+							<div class="row">
+								<h3><center><u>Add Route:</u></center></h3>
+							</div>
+							<div id = "input-route">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Route Number" name = "id" id = "id">
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Source" name = "source" id = "source">
+								</div>
+								<center><div id = "waypoints"></div></center>
+								<div class = "row">
+									<div class = "col-sm-4"></div>
+									<div class = "col-sm-4"><button class ="form-control" id = "add-waypoint"  onclick="add()";">Add Waypoint</button></div>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Destination" name="destination" id="destination">
+								</div>
+								<div class = "row">
+									<div class = "col-sm-2"></div>
+									<div class = "col-sm-3"><button type="submit" class ="form-control" onclick="save_route()">Add</button></div>
+									<div class = "col-sm-2"></div>
+									<div class = "col-sm-3"><button class ="form-control" onclick="location.href='/admin';">Back</button></div>
+								</div>
+						</div>									
+					</section>
+				</div>
+				<div class = "col-sm-7">
+					<div id = "map"></div>
+				</div>
+			</div>
+			
+		</section>
+
+		<footer>
+			<div class="row">
+				<p class="col-sm-4">&copy; Tracking System</p>
+				<ul class="col-sm-8">
+					<li class="col-sm-1">
+					<img src="../images/twitter.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/facebook.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/instagram.svg">
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="../js/add_maps.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqr0wZ0b5fB0jnM4denhKupwfTRL9G6xY&libraries=places&callback=initMap"
+        async defer></script>
+	</body>
+</html>

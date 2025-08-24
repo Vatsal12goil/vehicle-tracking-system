@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Divyanshu Talwar">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/home.css">
+	</head>
+
+	<body>
+		<header>
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-sm-6">
+						<p id = "heading">Tracking System</p>
+					</div>
+					<form action = "/login" method = "post">
+						<div id = "login-form">
+							<div class = "col-sm-6">
+								<div class = "row">
+									<div class = "col-sm-5">
+										<input type="text" placeholder="Username" name="username" required>
+									</div>
+									<div class = "col-sm-5">
+										<div class="form-group">
+											<input type="password" placeholder="Password" name="password" required>
+											<div id = "forgot-pwd">
+												<a href="#"> forgot password? </a>
+											</div>
+										</div>
+									</div>
+									<div class = "col-sm-2">  
+										<button type="submit">Login</button>
+									</div>
+								</div>
+							</div>	
+						</div>
+					</form>
+				</div>
+			</div>
+		</header>
+		<section class="container">
+			<form action="/signup" method="post">
+				<div id = "signup_form">
+					<div class="row">
+						<h1><center><u>Sign Up</u></center></h1>
+						<% if (message.length > 0) { %>
+							<center><div class="alert alert-danger"><%= message %></div></center>
+						<% } %>
+					</div>
+					<div id = "input-signup">
+						<div class="form-group">
+							<label class="control-label" for="">Username</label>
+							<input type="text" class="form-control" placeholder="Username" name = "username">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Email</label>
+							<input type="text" class="form-control" placeholder="Email Address" name="email">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Password</label>
+							<input type="password" class="form-control" placeholder="Password" name="password">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Re-enter Password</label>
+							<input type="password" class="form-control" placeholder="Re-enter Password">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="">Signup as</label>
+							<select name="identity" class ="form-control" >
+								<option value="Student">Student</option>
+								<option value="Admin">Admin</option>
+								<option value="Teacher">Teacher</option>
+								<option value="Parent">Parent</option>
+								<option value="Driver">Driver</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<center>
+							<button type="submit">Sign Up</button>
+						</center>
+					</div>
+				</div>
+			</form>			
+		</section>
+
+		<footer>
+			<div class="row">
+				<p class="col-sm-4">&copy; Tracking System</p>
+				<ul class="col-sm-8">
+					<li class="col-sm-1">
+					<img src="../images/twitter.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/facebook.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/instagram.svg">
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- 		<script src="../js/login.js"></script> -->
+	</body>
+</html>

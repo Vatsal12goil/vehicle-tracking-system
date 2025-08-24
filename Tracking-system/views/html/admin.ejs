@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="Divyanshu Talwar">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/admin.css">
+	</head>
+
+	<body>
+		<header>
+			<div class = "container">
+				<div class = "row">
+					<div class = "col-sm-8">
+						<p id = "heading">Tracking System</p>
+					</div>
+					<div id = "login-form">
+						<div class = "col-sm-4">
+							<div class = "row">
+								<p class = "col-sm-10"> Welcome, <%= user.local.username %></p>
+								<div class = "col-sm-2">  
+									<button type="submit" onclick="location.href='/logout';">Logout</button>
+								</div>
+							</div>
+						</div>	
+					</div>			
+				</div>
+			</div>
+		</header>
+
+		<div id = "form">
+			<div class = "row">
+				<div class = "col-sm-10">
+					<div class = "col-sm-8">
+						<input type="text"class ="form-control"  placeholder="Route Number" name="username" id="route_no" required>
+					</div>
+					<div class = "col-sm-2" >
+						<button type="submit" class ="form-control" onclick = "call_route_fetch()">Submit</button>
+					</div>
+				</div>
+				<div class = "col-sm-2">
+					<button class ="form-control" onclick="location.href='/add_route'">Add route</button>
+				</div>
+			</div>
+			<div class="row"><center><p id = "location"></p></center></div>
+		</div>
+
+		<section class = "jumbotron">
+			<div id = "map"></div>
+		</section>
+		
+
+		<footer>
+			<div class="row">
+				<p class="col-sm-4">&copy; Tracking System</p>
+				<ul class="col-sm-8">
+					<li class="col-sm-1">
+					<img src="../images/twitter.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/facebook.svg">
+					</li>
+					<li class="col-sm-1">
+					<img src="../images/instagram.svg">
+					</li>
+				</ul>
+			</div>
+		</footer>
+
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="../js/student_maps.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqr0wZ0b5fB0jnM4denhKupwfTRL9G6xY&libraries=places&callback=initMap"
+        async defer></script>
+		<!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?&callback=initMap"></script> -->
+	</body>
+</html>
